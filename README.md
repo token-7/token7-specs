@@ -10,7 +10,7 @@ resource servers across multiple administrative domains.
 
 To begin with, there are two different definitions for the term federation:
 
-1. Joining two distinct networks (telecommunications networks)  
+1. Information sharing between heterogeneous networks (telecommunications networks)  
 2. Collective authority (federated identity)
 
 The TBF framework refers to No. 1
