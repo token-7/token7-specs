@@ -8,10 +8,25 @@ Abstract
    flows and constructs for coordinating access to heterogeneous OAuth 2.0
    resource servers across multiple administrative domains.
    
- Copyright Notice
+Copyright Notice
 
    Copyright (c) 2016 Token7 and the persons identified as the
    document authors. All rights reserved.
+
+Introduction
+
+   To begin with, there are two different definitions for the term federation:
+
+     1. Information sharing between heterogeneous networks (telecommunications networks)  
+     2. Collective authority (federated identity)
+
+   The TBF framework refers to No. 1
+
+Architectural Principle
+
+   The TBF mechanism is handled by the cross-domain autonomic control loop through
+   two authorization servers each in their own administrative domain. It means that
+   loop is cross-domain and control is autonomic.
 
 Resource Server to Resource Server Federation - Protocol Description
 
