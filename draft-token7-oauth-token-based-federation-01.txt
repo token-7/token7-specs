@@ -5,7 +5,7 @@
 Abstract
 
    Token-Based Federation (TBF) is a profile of OAuth 2.0. TBF defines interfaces,
-   flows and constructs for coordinating access to heterogeneous
+   flows and constructs for coordinating access to heterogeneous OAuth 2.0
    resource servers across multiple administrative domains.
    
  Copyright Notice
