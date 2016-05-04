@@ -15,6 +15,10 @@ To begin with, there are two different definitions for the term federation:
 
 The TBF framework refers to No. 1
 
+##Architectural Principle
+
+The TBF mechanism is handled by the cross-domain autonomic control loop through two authorization servers each in their own administrative domain. It means that loop is cross-domain and control is autonomic.
+
 ## Low-Level Use Cases
 
 ### Authentication and Authorization
