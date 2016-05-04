@@ -3,7 +3,7 @@
 ## Abstract
 
 Token-Based Federation (TBF) is an OAuth 2.0 federated authorization framework.
-TBF defines interfaces, flows and constructs for coordinating access to OAuth 2.0
+TBF defines interfaces, flows and constructs for coordinating access to heterogeneous OAuth 2.0
 resource servers across multiple administrative domains.
 
 ## Introduction
@@ -35,16 +35,15 @@ The TBF framework refers to No. 1
 
 ### Task Delegation
 
-* Workflow systems
+* Workflow System
 
 ### Blockchain
 
-* Federated ledger
+* Federated Ledger
 
 ## High-Level Use Cases
 
-### Electronic Postal services
+### New FTP/email-like services
 
-### Healthcare services
-
-### New email-like services
+* File Sharing System
+* Persistent Group Chat
