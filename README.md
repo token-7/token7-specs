@@ -23,7 +23,7 @@ The TBF mechanism is handled by the cross-domain unidirectional autonomic contro
 
 [OSI Model]
 
-## Federated trust relationship without central OAuth 2.0 authority
+## Federated trust relationship
 
 Each federated trust relationship between two administrative domains is defined as
 an assymetric one-way trust between trustor and trustee creating a reflexive assymetric
