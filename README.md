@@ -21,14 +21,14 @@ The TBF mechanism is handled by the cross-domain unidirectional autonomic contro
 
 ## OSI Model from a federation's perspective
 
-[OSI Model]: https://github.com/token-7/token7-specs/wiki/OSI-Model-from-a-federation's-perspective
+[OSI Model]
 
 ## Federated trust relationship without central OAuth 2.0 authority
 
 Each federated trust relationship between two administrative domains is defined as
 an assymetric one-way trust between federator and federatee.
 
-[Understanding trust and federation direction]: https://github.com/token-7/token7-specs/wiki/Uderstanding-OAuth2-trust-and-federation-direction
+[Understanding trust and federation direction] 
 
 ## Low-Level Use Cases
 
@@ -62,3 +62,6 @@ an assymetric one-way trust between federator and federatee.
 
 * File Sharing System
 * Persistent Group Chat
+
+[OSI Model]: https://github.com/token-7/token7-specs/wiki/OSI-Model-from-a-federation's-perspective
+[Understanding trust and federation direction]:  https://github.com/token-7/token7-specs/wiki/Uderstanding-OAuth2-trust-and-federation-direction
