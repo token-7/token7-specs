@@ -33,6 +33,73 @@ Federated trust relationship
    an asymmetric one-way trust between trustor and trustee creating a reflexive asymmetric
    unidirectional federation between federator and federatee.
 
+Client to Resource Server Federation - Protocol Description
+
+   A federated trust relationship must be established between authorization servers AS1 and AS2.
+   
+   The process begins with any standard OAuth2 protocol flow, where the
+   client obtains AT1 from the AS1.
+
+   The beginning of the process is standard OAuth2 flow using any legal
+   OAuth2 grant type to obtain the AT1.
+
+     +-------------+       +-------------+
+     |             |--(A)->|  Resource   |
+     |             |       |   Owner     |
+     |             |<-(B)--|   (RO)      |
+     |             |       +-------------+
+     |             |
+     |             |                             +---------------+       +---------------+
+     | Federator's |--(C)----------------------->|  Federator's  |       |  Federatee's  |
+     |   Client    |                             | Authorization |       | Authorization |
+     |             |<-(D)------------------------|     Server    |       |     Server    |
+     |             |                             |     (AS1)     |       |     (AS2)     |
+     |             |                             |               |       |               |
+     |             |                             |               |       |               |       +-------------+
+     |             |                             |               |<-(G)--|               |<-(F)--| Federatee's |
+     |             |                             |               |       |               |       |  Resource   |
+     |             |                             |               |--(H)->|               |--(I)->|   Server    |
+     |             |                             +---------------+       +---------------+       |   (RS2)     |
+     |             |                                                                             |             |
+     |             |                                                                             |             |
+     |             |--(E)----------------------------------------------------------------------->|             |
+     |             |                                                                             |             |   
+     |             |<-(J)------------------------------------------------------------------------|             |
+     |             |                                                                             |             |    
+     +-------------+                                                                             +-------------+
+
+	 
+   (A)  Client requests authorization from Resource Owner
+
+   (B)  Client receives authorization from the Resource Owner using any
+      valid OAuth2 grant type
+
+   (C)  Client requests AT from the AS1 by authenticating with the AS1
+      and presenting the authorization grant obtained in (B)
+
+   (D)  AS1 authenticates the Client and issues access token AT for use at RS2
+
+   (E)  Client presents access token AT to RS1 to access a protected resource
+
+   (F)  RS2 presents AT on the Federated Introspection Endpoint on AS2
+
+   (G)  AS2 validates AT on the Federated Introspection Endpoint and
+      presents this AT on the Introspection Endpoint on AS1
+
+   (H)  AS1 validates AT on the Introspection Endpoint and returns JSON document
+      representing the meta information surrounding the token, including whether
+	  this token is currently active.
+
+   (I)  AS2 validates JSON document returned from AS1 Introspection Endpoint and
+      returns the new JSON document representing the meta information from AS2.
+
+   (J)  RS2 validates token AT and returns the protected resource to Client
+
+   Steps A-E and J are standard OAuth2 and OAuth2 Bearer tokens
+   involving token AT.  As such, the Client MAY make use of any OAuth2
+   grant type, such as authorization_code, implicit, client_credentials,
+   password or assertion.
+
 Resource Server to Resource Server Federation - Protocol Description
 
    A federated trust relationship must be established between authorization servers AS1 and AS2.
@@ -111,36 +178,7 @@ Resource Server to Resource Server Federation - Protocol Description
    involving token AT1.  As such, the Client MAY make use of any OAuth2
    grant type, such as authorization_code, implicit, client_credentials,
    password or assertion.
-   
-Client to Resource Server Federation - Protocol Description
-
-     +-------------+       +-------------+
-     |             |--(A)->|  Resource   |
-     |             |       |   Owner     |
-     |             |<-(B)--|   (RO)      |
-     |             |       +-------------+
-     |             |
-     |             |                             +---------------+       +---------------+
-     | Federator's |--(C)----------------------->|  Federator's  |       |  Federatee's  |
-     |   Client    |                             | Authorization |       | Authorization |
-     |             |<-(D)------------------------|     Server    |       |     Server    |
-     |             |                             |     (AS1)     |       |     (AS2)     |
-     |             |                             |               |       |               |
-     |             |                             |               |       |               |       +-------------+
-     |             |                             |               |<-(G)--|               |<-(F)--| Federatee's |
-     |             |                             |               |       |               |       |  Resource   |
-     |             |                             |               |--(H)->|               |--(I)->|   Server    |
-     |             |                             +---------------+       +---------------+       |   (RS2)     |
-     |             |                                                                             |             |
-     |             |                                                                             |             |
-     |             |--(E)----------------------------------------------------------------------->|             |
-     |             |                                                                             |             |   
-     |             |<-(J)------------------------------------------------------------------------|             |
-     |             |                                                                             |             |    
-     +-------------+                                                                             +-------------+
-
-   ...
-   
+      
    Acknowledgements
 
    A part of this document was originally proposed in draft-richer-oauth-chain-00, and
