@@ -64,4 +64,4 @@ an assymetric one-way trust between federator and federatee.
 * Persistent Group Chat
 
 [OSI Model]: https://github.com/token-7/token7-specs/wiki/OSI-Model-from-a-federation's-perspective
-[Understanding OAuth 2.0 trust and federation direction]:  https://github.com/token-7/token7-specs/wiki/Uderstanding-OAuth2-trust-and-federation-direction
+[Understanding OAuth 2.0 trust and federation direction]:  https://github.com/token-7/token7-specs/wiki/Understanding-OAuth-2.0-trust-and-federation-direction
