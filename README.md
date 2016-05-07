@@ -17,7 +17,18 @@ The TBF framework refers to No. 1
 
 ##Architectural Principle
 
-The TBF mechanism is handled by the cross-domain autonomic control loop through two authorization servers each in their own administrative domain. It means that the main loop is cross-domain, and the control is autonomic.
+The TBF mechanism is handled by the cross-domain unidirectional autonomic control loop through two authorization servers each in their own administrative domain.
+
+## OSI Model from a federation's perspective
+
+[OSI Model]: https://github.com/token-7/token7-specs/wiki/OSI-Model-from-a-federation's-perspective
+
+## Federated trust relationship without central OAuth 2.0 authority
+
+Each federated trust relationship between two administrative domains is defined as
+an assymetric one-way trust between federator and federatee.
+
+[Understanding trust and federation direction]: https://github.com/token-7/token7-specs/wiki/Uderstanding-OAuth2-trust-and-federation-direction
 
 ## Low-Level Use Cases
 

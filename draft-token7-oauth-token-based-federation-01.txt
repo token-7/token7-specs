@@ -24,14 +24,17 @@ Introduction
 
 Architectural Principle
 
-   The TBF mechanism is handled by the cross-domain autonomic control loop through
-   two authorization servers each in their own administrative domain. It means that
-   the main loop is cross-domain, and the control is autonomic.
+   The TBF mechanism is handled by the cross-domain unidirectional autonomic control loop
+   through two authorization servers each in their own administrative domain.
+   
+Federated trust relationship without central OAuth 2.0 authority
+
+   Each federated trust relationship between two administrative domains is defined as
+   an assymetric one-way trust between federator and federatee.
 
 Resource Server to Resource Server Federation - Protocol Description
 
-   A trust must be established between authorization servers AS1 and AS2.
-   How this trust is established is outside the scope of this specification.
+   A federated trust relationship must be established between authorization servers AS1 and AS2.
    
    The process begins with any standard OAuth2 protocol flow, where the
    client obtains AT1 from the AS1.
@@ -39,30 +42,30 @@ Resource Server to Resource Server Federation - Protocol Description
    The beginning of the process is standard OAuth2 flow using any legal
    OAuth2 grant type to obtain the AT1.
    
-     +--------+       +-------------+
-     |        |--(A)->|  Resource   |
-     |        |       |   Owner     |
-     |        |<-(B)--|   (RO)      |
-     |        |       +-------------+
-     |        |
-     |        |                             +---------------+       +---------------+
-     |        |--(C)----------------------->|    Primary    |       |   Federated   |
-     | Client |                             | Authorization |       | Authorization |
-     |        |<-(D)------------------------|     Server    |       |     Server    |
-     |        |                             |     (AS1)     |       |     (AS2)     |
-     |        |                             |               |       |               |
-     |        |       +-------------+       |               |       |               |       +-------------+
-     |        |--(E)->|  Primary    |--(F)->|               |<-(J)--|               |<-(I)--| Federated   |
-     |        |       |  Resource   |       |               |       |               |       |  Resource   |
-     |        |       |   Server    |<-(G)--|               |--(K)->|               |--(L)->|   Server    |
-     |        |       |   (RS1)     |       +---------------+       +---------------+       |   (RS2)     |
-     |        |       |             |                                                       |             |
-     |        |       |             |                                                       |             |
-     |        |       |             |--(H)------------------------------------------------->|             |
-     |        |       |             |                                                       |             |   
-     |        |       |             |<-(M)--------------------------------------------------|             |
-     |        |<-(N)--|             |                                                       |             |    
-     +--------+       +-------------+                                                       +-------------+
+     +-------------+       +-------------+
+     |             |--(A)->|  Resource   |
+     |             |       |   Owner     |
+     |             |<-(B)--|   (RO)      |
+     |             |       +-------------+
+     |             |
+     |             |                             +---------------+       +---------------+
+     | Federator's |--(C)----------------------->|  Federator's  |       |  Federatee's  |
+     |   Client    |                             | Authorization |       | Authorization |
+     |             |<-(D)------------------------|     Server    |       |     Server    |
+     |             |                             |     (AS1)     |       |     (AS2)     |
+     |             |                             |               |       |               |
+     |             |       +-------------+       |               |       |               |       +-------------+
+     |             |--(E)->| Federator's |--(F)->|               |<-(J)--|               |<-(I)--| Federatee's |
+     |             |       |  Resource   |       |               |       |               |       |  Resource   |
+     |             |       |   Server    |<-(G)--|               |--(K)->|               |--(L)->|   Server    |
+     |             |       |   (RS1)     |       +---------------+       +---------------+       |   (RS2)     |
+     |             |       |             |                                                       |             |
+     |             |       |             |                                                       |             |
+     |             |       |             |--(H)------------------------------------------------->|             |
+     |             |       |             |                                                       |             |   
+     |             |       |             |<-(M)--------------------------------------------------|             |
+     |             |<-(N)--|             |                                                       |             |    
+     +-------------+       +-------------+                                                       +-------------+
 
 
    (A)  Client requests authorization from Resource Owner
@@ -110,30 +113,30 @@ Resource Server to Resource Server Federation - Protocol Description
    
 Client to Resource Server Federation - Protocol Description
 
-     +--------+       +-------------+
-     |        |--(A)->|  Resource   |
-     |        |       |   Owner     |
-     |        |<-(B)--|   (RO)      |
-     |        |       +-------------+
-     |        |
-     |        |                             +---------------+       +---------------+
-     |        |--(C)----------------------->|    Primary    |       |   Federated   |
-     | Client |                             | Authorization |       | Authorization |
-     |        |<-(D)------------------------|     Server    |       |     Server    |
-     |        |                             |     (AS1)     |       |     (AS2)     |
-     |        |                             |               |       |               |
-     |        |                             |               |       |               |       +-------------+
-     |        |                             |               |<-(G)--|               |<-(F)--| Federated   |
-     |        |                             |               |       |               |       |  Resource   |
-     |        |                             |               |--(H)->|               |--(I)->|   Server    |
-     |        |                             +---------------+       +---------------+       |   (RS2)     |
-     |        |                                                                             |             |
-     |        |                                                                             |             |
-     |        |--(E)----------------------------------------------------------------------->|             |
-     |        |                                                                             |             |   
-     |        |<-(J)------------------------------------------------------------------------|             |
-     |        |                                                                             |             |    
-     +--------+                                                                             +-------------+
+     +-------------+       +-------------+
+     |             |--(A)->|  Resource   |
+     |             |       |   Owner     |
+     |             |<-(B)--|   (RO)      |
+     |             |       +-------------+
+     |             |
+     |             |                             +---------------+       +---------------+
+     | Federator's |--(C)----------------------->|  Federator's  |       |  Federatee's  |
+     |   Client    |                             | Authorization |       | Authorization |
+     |             |<-(D)------------------------|     Server    |       |     Server    |
+     |             |                             |     (AS1)     |       |     (AS2)     |
+     |             |                             |               |       |               |
+     |             |                             |               |       |               |       +-------------+
+     |             |                             |               |<-(G)--|               |<-(F)--| Federatee's |
+     |             |                             |               |       |               |       |  Resource   |
+     |             |                             |               |--(H)->|               |--(I)->|   Server    |
+     |             |                             +---------------+       +---------------+       |   (RS2)     |
+     |             |                                                                             |             |
+     |             |                                                                             |             |
+     |             |--(E)----------------------------------------------------------------------->|             |
+     |             |                                                                             |             |   
+     |             |<-(J)------------------------------------------------------------------------|             |
+     |             |                                                                             |             |    
+     +-------------+                                                                             +-------------+
 
    ...
    
