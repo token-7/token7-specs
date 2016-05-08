@@ -25,17 +25,89 @@ Introduction
 Architectural Principle
 
    The TBF mechanism is handled by the cross-domain unidirectional autonomic control loop
-   through two authorization servers each in their own administrative domain.
+   through two authorization servers each in its own administrative domain.
    
-Federated trust relationship
+OSI Model from a federation's perspective
 
-   Each federated trust relationship between two administrative domains is defined as
-   an asymmetric one-way trust between trustor and trustee creating a reflexive asymmetric
-   unidirectional federation between federator and federatee.
+      +--------------------+----------------+----------------+-------------------------+
+      |     OSI Layer      |   Protocols    |   Framework    |         Comment         |
+      +--------------------+                |                |                         |
+      | No. |    Name      |                |                |                         |
+      +-----+--------------+----------------+----------------+-------------------------+
+      | 7.4 |              | HTTP(S), ...   |                | Federated Session       |
+      +-----+              +----------------+----------------+-------------------------+
+      | 7.3 |              |                | TBF, UMA?      | Federated Authorization |
+      +-----+ Application  | OAuth2         +----------------+-------------------------+
+      | 7.2 |              |                | OpenID Connect | Federated Identity      |
+      +-----+              +----------------+----------------+-------------------------+
+      | 7.1 |              | DNS, Webfinger |                | Federated Domain        |
+      +-----+--------------+----------------+----------------+-------------------------+
+      | 6   | Presentation |
+      +-----+--------------+
+      | 5   | Session      |
+      +-----+--------------+
+      | 4   | Transport    |
+      +-----+--------------+
+      | 3   | Network      |
+      +-----+--------------+
+      | 2   | Data link    |
+      +-----+--------------+
+      | 1   | Physical     |
+      +-----+--------------+
+   
+Terminology
+
+   This specification uses the terms "Access Token", "Authorization Code", "Authorization Endpoint",
+   "Authorization Grant", "Authorization Server", "Client", "Resource Owner" defined by OAuth 2.0 [RFC6749]
+   and the term "Introspection Endpoint" defined by OAuth 2.0 Token Introspection [RFC7662].
+   
+   This specification also defines the following terms:
+   
+   Trustor
+       The administrative domain that trusts the target administrative domain
+   
+   Trustee
+       The administrative domain that is trusted
+   
+   Federator
+       The administrative domain that federates the Trustor
+   
+   Federatee
+       The Trustor that is federated
+
+   Requestor
+       The Resource Owner or the subject from the Federator.
+
+   Federated Trust Relationship
+
+       Each Federated Trust Relationship between two administrative domains is defined as
+       an asymmetric one-way trust between Trustor and Trustee creating a reflexive asymmetric
+       unidirectional federation between Federator and Federatee.
+	   
+OAuth 2.0 access, trust and federation directions
+
+     Administrative Domain A         Administrative Domain B
+
+                                |
+        OAuth 2.0 Client        |    OAuth 2.0 Resource Server
+                       Direction of access
+                   -------------------------->
+                                |
+                                |
+              Trustee           |            Trustor
+                       Direction of trust
+                   <--------------------------
+                                |
+                                |
+             Federator          |           Federatee
+                     Direction of federation
+                   -------------------------->
+                                |
+                                |
 
 Client to Resource Server Federation - Protocol Description
 
-   A federated trust relationship must be established between authorization servers AS1 and AS2.
+   A Federated Trust Relationship must be established between authorization servers AS1 and AS2.
    
    The process begins with any standard OAuth2 protocol flow, where the
    client obtains AT1 from the AS1.
@@ -44,9 +116,9 @@ Client to Resource Server Federation - Protocol Description
    OAuth2 grant type to obtain the AT1.
 
      +-------------+       +-------------+
-     |             |--(A)->|  Resource   |
-     |             |       |   Owner     |
-     |             |<-(B)--|   (RO)      |
+     |             |--(A)->|             |
+     |             |       |  Requestor  |
+     |             |<-(B)--|             |
      |             |       +-------------+
      |             |
      |             |                             +---------------+       +---------------+
@@ -68,10 +140,9 @@ Client to Resource Server Federation - Protocol Description
      |             |                                                                             |             |    
      +-------------+                                                                             +-------------+
 
-	 
-   (A)  Client requests authorization from Resource Owner
+   (A)  Client requests authorization from Requestor
 
-   (B)  Client receives authorization from the Resource Owner using any
+   (B)  Client receives authorization from the Requestor using any
       valid OAuth2 grant type
 
    (C)  Client requests AT from the AS1 by authenticating with the AS1
@@ -102,7 +173,7 @@ Client to Resource Server Federation - Protocol Description
 
 Resource Server to Resource Server Federation - Protocol Description
 
-   A federated trust relationship must be established between authorization servers AS1 and AS2.
+   A Federated Trust Relationship must be established between authorization servers AS1 and AS2.
    
    The process begins with any standard OAuth2 protocol flow, where the
    client obtains AT1 from the AS1.
@@ -111,9 +182,9 @@ Resource Server to Resource Server Federation - Protocol Description
    OAuth2 grant type to obtain the AT1.
    
      +-------------+       +-------------+
-     |             |--(A)->|  Resource   |
-     |             |       |   Owner     |
-     |             |<-(B)--|   (RO)      |
+     |             |--(A)->|             |
+     |             |       |  Requestor  |
+     |             |<-(B)--|             |
      |             |       +-------------+
      |             |
      |             |                             +---------------+       +---------------+
@@ -135,10 +206,9 @@ Resource Server to Resource Server Federation - Protocol Description
      |             |<-(N)--|             |                                                       |             |    
      +-------------+       +-------------+                                                       +-------------+
 
+   (A)  Client requests authorization from Requestor
 
-   (A)  Client requests authorization from Resource Owner
-
-   (B)  Client receives authorization from the Resource Owner using any
+   (B)  Client receives authorization from the Requestor using any
       valid OAuth2 grant type
 
    (C)  Client requests AT1 from the AS1 by authenticating with the AS1
