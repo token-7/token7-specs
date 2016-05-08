@@ -249,7 +249,7 @@ Resource Server to Resource Server Federation - Protocol Description
    grant type, such as authorization_code, implicit, client_credentials,
    password or assertion.
       
-   Acknowledgements
+Acknowledgements
 
    A part of this document was originally proposed in draft-richer-oauth-chain-00, and
    hence credit for it belongs to the original A Method of Bearer Token Redelegation and
