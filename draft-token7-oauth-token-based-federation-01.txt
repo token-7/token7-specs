@@ -58,7 +58,7 @@ OSI Model from a federation's perspective
 Terminology
 
    This specification uses the terms "Access Token", "Authorization Code", "Authorization Endpoint",
-   "Authorization Grant", "Authorization Server", "Client", "Resource Owner" defined by OAuth 2.0 [RFC6749]
+   "Authorization Grant", "Authorization Server", "Client", "Resource Server" defined by OAuth 2.0 [RFC6749]
    and the term "Introspection Endpoint" defined by OAuth 2.0 Token Introspection [RFC7662].
    
    This specification also defines the following terms:
@@ -76,7 +76,7 @@ Terminology
        The Trustor that is federated
 
    Requestor
-       The Resource Owner or the subject from the Federator.
+       A subject from the Federator requesting the protected resource from the Federatee's Resource Server.
 
    Federated Trust Relationship
 
