@@ -29,7 +29,7 @@ Each Federated Trust Relationship between two administrative domains is defined 
 an asymmetric one-way trust between Trustor and Trustee creating a reflexive asymmetric
 unidirectional federation between Federator and Federatee.
 
-[Understanding OAuth 2.0 trust and federation directions] 
+[Understanding OAuth 2.0 access, trust and federation directions] 
 
 ## Low-Level Use Cases
 
@@ -65,4 +65,4 @@ unidirectional federation between Federator and Federatee.
 * Persistent Group Chat
 
 [OSI Model]: https://github.com/token-7/token7-specs/wiki/OSI-Model-from-a-federation's-perspective
-[Understanding OAuth 2.0 trust and federation directions]:  https://github.com/token-7/token7-specs/wiki/Understanding-OAuth-2.0-trust-and-federation-directions
+[Understanding OAuth 2.0 access, trust and federation directions]:  https://github.com/token-7/token7-specs/wiki/Understanding-OAuth-2.0-access,-trust-and-federation-directions
