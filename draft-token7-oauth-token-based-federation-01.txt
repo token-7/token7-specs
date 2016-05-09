@@ -76,7 +76,7 @@ Terminology
        The Trustor that is federated
 
    Requestor
-       A subject from the Federator requesting the protected resource from the Federatee's Resource Server.
+       A subject operating the Federator's Client that requests the protected resource from the Federatee's Resource Server.
 
    Federated Trust Relationship
 
