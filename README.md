@@ -17,7 +17,6 @@ The TBF framework refers to No. 1
 
 ##Architectural Principle
 
-The TBF mechanism is handled by the cross-domain unidirectional autonomic control loop through two authorization servers each in its own administrative domain.
 
 ## OSI Model from a federation's perspective
 
@@ -26,7 +25,7 @@ The TBF mechanism is handled by the cross-domain unidirectional autonomic contro
 ## Federated Trust Relationship
 
 Each Federated Trust Relationship between two administrative domains is defined as
-an asymmetric one-way trust between Trustor and Trustee creating a reflexive asymmetric
+an asymmetric one-way trust between Trustor and Trustee paired with the reflexive asymmetric
 unidirectional federation between Federator and Federatee.
 
 [Understanding OAuth 2.0 access, trust and federation directions] 
