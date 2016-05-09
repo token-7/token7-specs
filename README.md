@@ -19,7 +19,7 @@ The TBF framework refers to No. 1
 
 The TBF mechanism is handled by the cross-domain autonomic control loop through two authorization servers each in its own administrative domain.
 
-## OSI Model from a federation's perspective
+## OSI Model from TBF perspective
 
 [OSI Model]
 
@@ -64,5 +64,5 @@ unidirectional federation between Federator and Federatee.
 * File Sharing System
 * Persistent Group Chat
 
-[OSI Model]: https://github.com/token-7/token7-specs/wiki/OSI-Model-from-a-federation's-perspective
+[OSI Model]: https://github.com/token-7/token7-specs/wiki/OSI-Model-from-TBF-perspective
 [Understanding OAuth 2.0 access, trust and federation directions]:  https://github.com/token-7/token7-specs/wiki/Understanding-OAuth-2.0-access,-trust-and-federation-directions

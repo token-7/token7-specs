@@ -27,21 +27,21 @@ Architectural Principle
    The TBF mechanism is handled by the cross-domain autonomic control loop
    through two authorization servers each in its own administrative domain.
    
-OSI Model from a federation's perspective
+OSI Model from TBF perspective
 
-      +--------------------+----------------+----------------+-------------------------+
-      |     OSI Layer      |   Protocols    |   Framework    |         Comment         |
-      +--------------------+                |                |                         |
-      | No. |    Name      |                |                |                         |
-      +-----+--------------+----------------+----------------+-------------------------+
-      | 7.4 |              | HTTP(S), ...   |                | Federated Session       |
-      +-----+              +----------------+----------------+-------------------------+
-      | 7.3 |              |                | TBF, UMA?      | Federated Authorization |
-      +-----+ Application  | OAuth2         +----------------+-------------------------+
-      | 7.2 |              |                | OpenID Connect | Federated Identity      |
-      +-----+              +----------------+----------------+-------------------------+
-      | 7.1 |              | DNS, Webfinger |                | Federated Domain        |
-      +-----+--------------+----------------+----------------+-------------------------+
+      +--------------------+----------------+----------------------+-------------------------+
+      |     OSI Layer      |   Protocols    |      Framework       |         Comment         |
+      +--------------------+                |                      |                         |
+      | No. |    Name      |                |                      |                         |
+      +-----+--------------+----------------+----------------------+-------------------------+
+      | 7.4 |              | HTTP(S), ...   | Spring, ASP.NET, ... | Federated Session       |
+      +-----+              +----------------+----------------------+-------------------------+
+      | 7.3 |              |                | TBF                  | Federated Authorization |
+      +-----+ Application  | OAuth2         +----------------------+-------------------------+
+      | 7.2 |              |                | OpenID Connect       | Federated Identity      |
+      +-----+              +----------------+----------------------+-------------------------+
+      | 7.1 |              | DNS, Webfinger |                      | Federated Domain        |
+      +-----+--------------+----------------+----------------------+-------------------------+
       | 6   | Presentation |
       +-----+--------------+
       | 5   | Session      |
