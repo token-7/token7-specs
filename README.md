@@ -42,7 +42,8 @@ unidirectional federation between Federator and Federatee.
 
 ### Public Key Infrastructure
 
-* Identity-Based Privacy
+* [Identity-Based Privacy]
+* [Encryption Key Generator]
 
 ### Signaling
 
@@ -66,3 +67,5 @@ unidirectional federation between Federator and Federatee.
 
 [OSI Model]: https://github.com/token-7/token7-specs/wiki/OSI-Model-from-TBF-perspective
 [Understanding OAuth 2.0 access, trust and federation directions]:  https://github.com/token-7/token7-specs/wiki/Understanding-OAuth-2.0-access,-trust-and-federation-directions
+[Identity-Based Privacy]: https://igi64.github.io/ibp.html
+[Encryption Key Generator]: https://igi64.github.io/airykey.html
