@@ -79,11 +79,14 @@ Terminology
        A subject operating the Federator's Client that requests the protected resource from the Federatee's Resource Server.
 
    Federated Trust Relationship
-
        Each Federated Trust Relationship between two administrative domains is defined as
        an asymmetric one-way trust between Trustor and Trustee paired with the reflexive asymmetric
        unidirectional federation between Federator and Federatee.
 	   
+   Federation Operator
+       A third party organization that creates the policies, procedures, and technical standards
+	   for a given federation and that acts as a trusted intermediary between Federator and Federatee.
+
 OAuth 2.0 access, trust and federation directions
 
      Administrative Domain A         Administrative Domain B
