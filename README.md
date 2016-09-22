@@ -37,6 +37,7 @@ unidirectional federation between Federator and Federatee.
 
 * Identity and Attribute Providers
 * User-Managed Access
+* Authorized Resource Server Single Sign-On
 
 ## Medium-Level Use Cases
 
