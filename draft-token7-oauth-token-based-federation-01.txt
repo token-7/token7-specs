@@ -1,6 +1,7 @@
                                OAuth 2 Token-Based Federation
                         draft-token7-oauth-token-based-federation-01
 
+OBSOLETE: Please see the Federizer’s GitHub repository: https://github.com/federizer/token-based-federation
 
 Abstract
 
@@ -10,7 +11,7 @@ Abstract
    
 Copyright Notice
 
-   Copyright (c) 2016 Token7 and the persons identified as the
+   Copyright (c) 2016 Federizer and the persons identified as the
    document authors. All rights reserved.
 
 Introduction
@@ -29,19 +30,19 @@ Architectural Principle
    
 OSI Model from TBF perspective
 
-      +--------------------+----------------+--------------------------+----------------------------+
-      |     OSI Layer      |   Protocols    |        Framework         |           Comment          |
-      +--------------------+                |                          |                            |
-      | No. |    Name      |                |                          |                            |
-      +-----+--------------+----------------+--------------------------+----------------------------+
-      | 7.4 |              |                | Single Sign-On           | Session                    |
-      +-----+              |                +--------------------------+----------------------------+
-      | 7.3 |              | OAuth2         | User-Managed Access, TBF | Authorization              |
-      +-----+ Application  |                +--------------------------+----------------------------+
-      | 7.2 |              |                | OpenID Connect           | Authentication             |
-      +-----+              +----------------+--------------------------+----------------------------+
-      | 7.1 |              | DNS, Webfinger | Directory Services       | Directory                  |
-      +-----+--------------+----------------+--------------------------+----------------------------+
+      +--------------------+----------------+----------------------+-------------------------+
+      |     OSI Layer      |   Protocols    |      Framework       |         Comment         |
+      +--------------------+                |                      |                         |
+      | No. |    Name      |                |                      |                         |
+      +-----+--------------+----------------+----------------------+-------------------------+
+      | 7.4 |              | HTTP(S), ...   | Spring, ASP.NET, ... | Federated Session       |
+      +-----+              +----------------+----------------------+-------------------------+
+      | 7.3 |              |                | TBF                  | Federated Authorization |
+      +-----+ Application  | OAuth2         +----------------------+-------------------------+
+      | 7.2 |              |                | OpenID Connect       | Federated Identity      |
+      +-----+              +----------------+----------------------+-------------------------+
+      | 7.1 |              | DNS, Webfinger |                      | Federated Domain        |
+      +-----+--------------+----------------+----------------------+-------------------------+
       | 6   | Presentation |
       +-----+--------------+
       | 5   | Session      |

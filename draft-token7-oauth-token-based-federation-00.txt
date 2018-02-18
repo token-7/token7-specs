@@ -1,5 +1,7 @@
                                OAuth 2 Token-Based Federation
                         draft-token7-oauth-token-based-federation-00
+						
+OBSOLETE: Please see the Federizer’s GitHub repository: https://github.com/federizer/token-based-federation						
 				   
 Protocol Description
 

@@ -1,5 +1,8 @@
 # Token-Based Federation
 
+This repository is now redundant and will no longer be maintained, it is preserved only for historical purposes.
+Please see the Federizer's GitHub repository https://github.com/federizer/token-based-federation instead.
+
 ## Abstract
 
 Token-Based Federation (TBF) is an OAuth 2.0 federated authorization framework.
